@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/CouseraReact/Module1/confus/static/css/main.27fd15f6.chunk.css",
+    "main.js": "/CouseraReact/Module1/confus/static/js/main.6419c584.chunk.js",
+    "main.js.map": "/CouseraReact/Module1/confus/static/js/main.6419c584.chunk.js.map",
+    "runtime-main.js": "/CouseraReact/Module1/confus/static/js/runtime-main.5284878d.js",
+    "runtime-main.js.map": "/CouseraReact/Module1/confus/static/js/runtime-main.5284878d.js.map",
+    "static/css/2.bb4ba17c.chunk.css": "/CouseraReact/Module1/confus/static/css/2.bb4ba17c.chunk.css",
+    "static/js/2.37d07c91.chunk.js": "/CouseraReact/Module1/confus/static/js/2.37d07c91.chunk.js",
+    "static/js/2.37d07c91.chunk.js.map": "/CouseraReact/Module1/confus/static/js/2.37d07c91.chunk.js.map",
+    "index.html": "/CouseraReact/Module1/confus/index.html",
+    "precache-manifest.cd6f2c35f433b115f67f38b5d6d93b74.js": "/CouseraReact/Module1/confus/precache-manifest.cd6f2c35f433b115f67f38b5d6d93b74.js",
+    "service-worker.js": "/CouseraReact/Module1/confus/service-worker.js",
+    "static/css/2.bb4ba17c.chunk.css.map": "/CouseraReact/Module1/confus/static/css/2.bb4ba17c.chunk.css.map",
+    "static/css/main.27fd15f6.chunk.css.map": "/CouseraReact/Module1/confus/static/css/main.27fd15f6.chunk.css.map",
+    "static/js/2.37d07c91.chunk.js.LICENSE.txt": "/CouseraReact/Module1/confus/static/js/2.37d07c91.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/CouseraReact/Module1/confus/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5284878d.js",
+    "static/css/2.bb4ba17c.chunk.css",
+    "static/js/2.37d07c91.chunk.js",
+    "static/css/main.27fd15f6.chunk.css",
+    "static/js/main.6419c584.chunk.js"
+  ]
+}
