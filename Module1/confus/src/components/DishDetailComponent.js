@@ -10,6 +10,7 @@ class Dishdetail extends Component {
 
         const formattedDate = moment(date).format("LL");
         //console.log(formattedDate);
+        //new Intl.DateTimeFormat('en-US',{optional-format}.format(new Date(Date.parse(comment.date))))
         return formattedDate;
     }
 
