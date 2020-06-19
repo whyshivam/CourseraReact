@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, CardImg, CardBody, CardText } from 'reactstrap';
-import moment from 'moment';
 
 //User Defined components start with caps
     function RenderComments({comments}) {
@@ -51,7 +50,6 @@ import moment from 'moment';
     }
 
     const Dishdetail=(props) => {
-        const dish = props.dish;
         if (props.dish == null) {
             return (<div></div>);
         }
