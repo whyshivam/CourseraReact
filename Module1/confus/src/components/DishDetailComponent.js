@@ -53,8 +53,8 @@ class Commentform extends Component{
                                 <option>5</option>
                             </Control.select>
                             </Row>
-                            <Row className="form-group"> <Label htmlFor="firstname" md={2}>First Name</Label>
-                                    <Control.text model=".name" id="firstname" name="firstname"
+                            <Row className="form-group"> <Label htmlFor="author" md={2}>First Name</Label>
+                                    <Control.text model=".author" id="author" name="author"
                                         placeholder="First Name"
                                         className="form-control" 
                                         validators={{minLength: minLength(3),maxLength : maxLength(15)}}
@@ -69,9 +69,9 @@ class Commentform extends Component{
                                          />
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="message" md={2}>Comment</Label>
+                                <Label htmlFor="comment" md={2}>Comment</Label>
                                 
-                                    <Control.textarea model=".message"  id="message" name="message"
+                                    <Control.textarea model=".comment"  id="comment" name="comment"
                                        
                                         className="form-control" />
                         
