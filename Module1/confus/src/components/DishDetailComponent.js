@@ -23,9 +23,11 @@ class Commentform extends Component{
     }
     handleSubmit(values) {
         this.toggleModal();
-		console.log('Current State is: ' + JSON.stringify(values));
-		alert('Current State is: ' + JSON.stringify(values));
-		//event.preventDefault();
+        console.log("Values "+JSON.stringify(values));
+        var val=JSON.stringify(values);
+        console.log(values.author);
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+        //event.preventDefault();
 		//Prevent to go to next page
 }
 
@@ -38,7 +40,7 @@ class Commentform extends Component{
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
-                        <LocalForm onSubmit={this.handleSubmit} >
+                        <LocalForm onSubmit={(values) => this.handleSubmit(values)} >
                             <Row className="form-group">
                             <Label htmlFor="rating">Rating</Label>
                             <Control.select model=".rating" name="contactType"
@@ -54,7 +56,7 @@ class Commentform extends Component{
                             <Row className="form-group"> <Label htmlFor="firstname" md={2}>First Name</Label>
                                     <Control.text model=".name" id="firstname" name="firstname"
                                         placeholder="First Name"
-                                        className="form-control"
+                                        className="form-control" 
                                         validators={{minLength: minLength(3),maxLength : maxLength(15)}}
                                          />
                                          <Errors className="text-danger"
@@ -73,7 +75,7 @@ class Commentform extends Component{
                                        
                                         className="form-control" />
                         
-                                    <Button type="submit" color="primary">
+                                    <Button type="submit" value="submit" color="primary">
                                     Comment
                                     </Button>
                             </Row>
@@ -88,7 +90,7 @@ class Commentform extends Component{
     }
 
 }
-    function RenderComments({comments}) {
+    function RenderComments({comments,addComment,dishId}) {
         if (comments == null) {
             return (<div></div>)
         }
@@ -101,7 +103,6 @@ class Commentform extends Component{
                     {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
                     </p>
                 </li>
-                
             )
         })
         return (
@@ -110,10 +111,7 @@ class Commentform extends Component{
                 <ul className='list-unstyled'>
                     {cmnts}
                 </ul>
-                <Commentform/>
-                    
-                
-
+                <Commentform dishId={dishId} addComment={addComment} />
             </div>
         )
     }
@@ -157,7 +155,12 @@ class Commentform extends Component{
                 </div>
                 <div className='row'>
                     <RenderDish dish={props.dish}/>
-                    <RenderComments comments={props.comments}/>
+                    <RenderComments comments={props.comments}
+        addComment={props.addComment}
+        dishId={props.dish.id}
+      />
+
+                    
                 </div>
             </div>
         );
