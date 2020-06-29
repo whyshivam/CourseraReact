@@ -1,7 +1,93 @@
-import React from 'react';
-import { Card, CardImg, CardBody, CardText, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import React, { Component } from 'react';
+import { Card, CardImg, CardBody, CardText, Breadcrumb, BreadcrumbItem,Button,Modal,ModalBody,ModalHeader,
+     Label, Input,Col,Row} from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Control, LocalForm, Errors} from 'react-redux-form';
+
+const maxLength=(len) => (val) => !(val) || (val.length <= len);
+const minLength=(len) => (val) => !(val) || (val.length >= len);
 //User Defined components start with caps
+class Commentform extends Component{
+    constructor (props) {
+        super(props);
+        this.state={
+            isModalOpen: false
+        }
+        this.toggleModal=this.toggleModal.bind(this);
+        this.handleSubmit=this.handleSubmit.bind(this);
+    }
+    toggleModal(){
+        this.setState({
+            isModalOpen: !this.state.isModalOpen
+        });
+    }
+    handleSubmit(values) {
+        this.toggleModal();
+		console.log('Current State is: ' + JSON.stringify(values));
+		alert('Current State is: ' + JSON.stringify(values));
+		//event.preventDefault();
+		//Prevent to go to next page
+}
+
+    render(){
+        return(
+            <div>
+                <Button outline onClick={this.toggleModal}>
+                 <span className="fa fa-sign-in fal-lg"></span>Add Comment
+            </Button>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
+                    <ModalBody>
+                        <LocalForm onSubmit={this.handleSubmit} >
+                            <Row className="form-group">
+                            <Label htmlFor="rating">Rating</Label>
+                            <Control.select model=".rating" name="contactType"
+                                className="form-control"
+                                >
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </Control.select>
+                            </Row>
+                            <Row className="form-group"> <Label htmlFor="firstname" md={2}>First Name</Label>
+                                    <Control.text model=".name" id="firstname" name="firstname"
+                                        placeholder="First Name"
+                                        className="form-control"
+                                        validators={{minLength: minLength(3),maxLength : maxLength(15)}}
+                                         />
+                                         <Errors className="text-danger"
+                                            model=".name"
+                                            show ="touched"
+                                            messages={{
+                                                minLength : 'Must be atleast 3',
+                                                maxLength :' maximum 15 char'
+                                            }}
+                                         />
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="message" md={2}>Comment</Label>
+                                
+                                    <Control.textarea model=".message"  id="message" name="message"
+                                       
+                                        className="form-control" />
+                        
+                                    <Button type="submit" color="primary">
+                                    Comment
+                                    </Button>
+                            </Row>
+                        
+
+
+                        </LocalForm>
+                    </ModalBody>
+                </Modal>
+            </div>
+        );
+    }
+
+}
     function RenderComments({comments}) {
         if (comments == null) {
             return (<div></div>)
@@ -15,6 +101,7 @@ import { Link } from 'react-router-dom';
                     {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
                     </p>
                 </li>
+                
             )
         })
         return (
@@ -23,6 +110,9 @@ import { Link } from 'react-router-dom';
                 <ul className='list-unstyled'>
                     {cmnts}
                 </ul>
+                <Commentform/>
+                    
+                
 
             </div>
         )
