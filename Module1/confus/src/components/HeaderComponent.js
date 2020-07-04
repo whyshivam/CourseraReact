@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, Nav, NavbarToggler, NavItem ,Jumbotron, Collapse,
 Button,Modal,ModalBody,ModalHeader, FormGroup, Form, Input,Label} from 'reactstrap';
 import {NavLink} from 'react-router-dom';
-import { findAllByDisplayValue } from '@testing-library/react';
 
 class Header extends Component{
     constructor (props) {

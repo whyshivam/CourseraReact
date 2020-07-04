@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardText, Breadcrumb, BreadcrumbItem,Button,Modal,ModalBody,ModalHeader,
-     Label, Input,Col,Row} from 'reactstrap';
+     Label,Row} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors} from 'react-redux-form';
 import {Loading} from './LoadingComponent';
@@ -28,7 +28,6 @@ class Commentform extends Component{
     handleSubmit(values) {
         this.toggleModal();
         console.log("Values "+JSON.stringify(values));
-        var val=JSON.stringify(values);
         console.log(values.author);
         this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
         //event.preventDefault();
